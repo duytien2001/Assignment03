@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Assignment 03</title>
+</head>
+<body>
+    <div class="container-fluid bg-dark text-light">
+        <div class="container">
+            <div class="col py-5">
+                <h1><b>CLASS AND OBJECT</b></h1>
+                <form class="pt-3" action="javascript:;" onsubmit="addValue()">
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label for="name">Nhập tên</label>
+                            <input type="text" value="" class="form-control" placeholder="Nhập họ và tên" id="name" onfocus="this.value=' '" required>
+                        </div>
+                        <div class="form-group col-md-6"> 
+                            <label>Giới tính</label>
+                            <select id="gender" class="form-control">
+                                <option selected="">Nam</option>
+                                <option>Nữ</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="markSub01">Điểm môn toán:</label>
+                        <input type="number" class="form-control" placeholder="Nhập điểm" id="marksub01" onfocus="this.value=' '" required min="0" max="10" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="markSub02">Điểm môn vật lý:</label>
+                        <input type="number" class="form-control" placeholder="Nhập điểm" id="marksub02" onfocus="this.value=' '" required min="0" max="10">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary col"><i class="fas fa-plus"></i>Thêm</button>
+                    </div>
+                </form>
+                <div class="row mb-5">
+                    <button class="btn btn-success col mx-3" onclick="quickCreStudent()"><i class="fas fa-magic"></i>Tạo nhanh 5</button>
+                    <button class="btn btn-sencondary col mx-3" onclick="deleteLastRow()"><i class="fas fa-window-close"></i>Xoá</button>
+                    <button class="btn btn-danger col mx-3" onclick="resetPage()"><i class="fas fa-undo-alt"></i>Reset</button>
+                </div>
+                <div class="py-3">
+                    <div class="row">
+                        <button class="btn btn-infor col m-2" onclick="returnResTable(ascendingSort(studentArray))"><i class="fas fa-sort-numeric-down"></i>Điểm tổng tăng dần</button>
+                        <button class="btn btn-infor col m-2" onclick="returnResTable(desendingSort(studentArray))"><i class="fas fa-sort-numeric-down-alt"></i>Điểm tổng giảm dần</button>
+                        <button class="btn btn-infor col m-2" onclick="returnResTable(filterGenderMark(studentArray, 'Nữ', 5))"><i class="fas fa-filter"></i>Nữ và điểm tổng trên 5</button>
+                        <button class="btn btn-infor col m-2" onclick="returnResTable(filterSubMark(studentArray, 8))"><i class="fas fa-filter"></i>Toán hoặc vật lý trên 8</button>
+                        <button class="btn btn-infor col m-2" onclick="returnResTable(findMaxSubMark(studentArray, 0))"><i class="fas fa-angle-double-up"></i>Điểm toán cao nhất</button>
+                        <button class="btn btn-infor col m-2" onclick="returnResTable(findMinSubMark(studentArray, 0))"><i class="fas fa-angle-double-down"></i>Điểm toán thấp nhất</button>
+                        <button class="btn btn-infor col m-2" onclick="returnResTable(RemoveStudent(studentArray, 0))"><i class="fas fa-window-close"></i>Xoá ai điểm tổng == 0</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-light" id="resTable">
+                            <thead>
+                                <tr>
+                                    <th>Họ và tên</th>
+                                    <th>Giới tính</th>
+                                    <th>Điểm toán</th>
+                                    <th>Điểm vật lý</th>
+                                    <th>Điểm tổng</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="assignment03.js"></script>
+    
+</body>
+</html>
